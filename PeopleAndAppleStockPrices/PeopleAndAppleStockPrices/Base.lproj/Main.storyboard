@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="u55-Nj-x3G">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VSE-e2-OkC" detailTextLabel="K3F-Jz-Zo8" style="IBUITableViewCellStyleSubtitle" id="cIU-Ni-YWZ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="userCell" textLabel="VSE-e2-OkC" detailTextLabel="K3F-Jz-Zo8" style="IBUITableViewCellStyleSubtitle" id="cIU-Ni-YWZ">
                                         <rect key="frame" x="0.0" y="28" width="414" height="55.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cIU-Ni-YWZ" id="EKr-gQ-zZs">
@@ -68,6 +67,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hJr-9I-npv"/>
                     <connections>
+                        <outlet property="searchBar" destination="KYr-Nz-I2u" id="nAT-5N-BWJ"/>
                         <outlet property="tableView" destination="Zad-Hh-GGe" id="GSu-xg-m8k"/>
                     </connections>
                 </viewController>
@@ -215,19 +215,19 @@
                                     <constraint firstAttribute="height" constant="220" id="yhz-MR-orY"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label One" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyJ-HO-nM5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyJ-HO-nM5">
                                 <rect key="frame" x="10" y="378" width="394" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Two" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNT-aV-kkL">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNT-aV-kkL">
                                 <rect key="frame" x="10" y="422" width="394" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Three" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx4-Ut-vA5">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx4-Ut-vA5">
                                 <rect key="frame" x="10" y="466" width="394" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -252,10 +252,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="u8R-yT-i1r"/>
                     <connections>
-                        <outlet property="labelOne" destination="FyJ-HO-nM5" id="enq-Ha-v6E"/>
-                        <outlet property="labelThree" destination="Cx4-Ut-vA5" id="4t1-Ir-QAd"/>
-                        <outlet property="labelTwo" destination="jNT-aV-kkL" id="SPq-qD-tuq"/>
+                        <outlet property="emailLabel" destination="jNT-aV-kkL" id="SPq-qD-tuq"/>
+                        <outlet property="nameLabel" destination="FyJ-HO-nM5" id="enq-Ha-v6E"/>
                         <outlet property="personImage" destination="aLG-iQ-Hry" id="Pqi-Ox-z7f"/>
+                        <outlet property="phoneLabel" destination="Cx4-Ut-vA5" id="4t1-Ir-QAd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cHh-b7-6Ep" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

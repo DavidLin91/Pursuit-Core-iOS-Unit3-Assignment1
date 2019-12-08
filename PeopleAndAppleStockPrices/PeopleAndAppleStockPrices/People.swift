@@ -8,14 +8,16 @@
 
 import Foundation
 
-struct UserInfo: Codable {
-    let results: [Users]
+struct User: Codable {
+    let results: [UserInfo]
 }
 
-struct Users: Codable {
+struct UserInfo: Codable {
     let name: Name
     let email: String
     let phone: String
+    let location: Location
+    let picture: Picture
 }
 
 struct Name: Codable {
@@ -23,16 +25,26 @@ struct Name: Codable {
     let last: String
 }
 
-extension UserInfo {
-    static func getUserInfo() -> [Users] {
-        var userArr = [Users]()
+struct Location: Codable {
+    let street: String
+    let city: String
+}
+
+struct Picture: Codable {
+    let large: String
+}
+
+
+extension User {
+    static func getUser() -> [UserInfo] {
+        var userArr = [UserInfo]()
         guard let fileURL = Bundle.main.url(forResource: "userinfo", withExtension: "json") else {
             fatalError()
         }
         do {
             let data = try Data.init(contentsOf: fileURL)
-            let userData = try JSONDecoder().decode(UserInfo.self, from: data)
-            userArr = userData.results
+            let userData = try JSONDecoder().decode(User.self, from: data)
+            userArr = userData.results.sorted {$0.name.first < $1.name.first}
         } catch {
             fatalError("\(error)")
         }

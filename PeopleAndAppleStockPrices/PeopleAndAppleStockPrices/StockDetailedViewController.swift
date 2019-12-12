@@ -25,8 +25,12 @@ class StockDetailedViewController: UIViewController {
     
     func loadData() {
         labelDescription.text = appleStockDetails.label
-        openingPrice.text = appleStockDetails.open.description
-        closingPrice.text = appleStockDetails.close.description
+        openingPrice.text = "Open Price: $\(appleStockDetails.open.description)"
+        closingPrice.text = "Close Price: $\(appleStockDetails.close.description)"
+//        if appleStockDetails.open > appleStockDetails.close {
+//            upDownImage.image = UIImage(named: "thumbsup")
+//            print(\(appleStockDetails.open))
+//        }
     }
     
 }

@@ -55,8 +55,9 @@ class StockViewController: UIViewController {
         guard let appleStock = segue.destination as? StockDetailedViewController, let indexPath = tableView.indexPathForSelectedRow else {
             fatalError("")
         }
-        appleStock.appleStockDetails = AppleStockData[indexPath.section][indexPath.row]
-    }
+        let uniqueStock = appleStockData[indexPath.row]
+        appleStock.appleStockDetails = uniqueStock
+        }
 }
 
 

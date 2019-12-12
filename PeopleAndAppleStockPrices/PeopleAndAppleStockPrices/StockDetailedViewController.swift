@@ -9,6 +9,9 @@
 import UIKit
 
 class StockDetailedViewController: UIViewController {
+    
+    var appleStockDetails: AppleStockData!
+    
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var upDownImage: UIImageView!
     @IBOutlet weak var openingPrice: UILabel!
@@ -16,8 +19,14 @@ class StockDetailedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadData()
     }
 
+    
+    func loadData() {
+        labelDescription.text = appleStockDetails.label
+        openingPrice.text = appleStockDetails.open.description
+        closingPrice.text = appleStockDetails.close.description
+    }
     
 }

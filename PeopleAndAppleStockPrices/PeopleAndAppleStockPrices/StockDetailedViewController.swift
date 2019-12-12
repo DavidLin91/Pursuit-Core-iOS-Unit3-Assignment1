@@ -27,10 +27,17 @@ class StockDetailedViewController: UIViewController {
         labelDescription.text = appleStockDetails.label
         openingPrice.text = "Open Price: $\(appleStockDetails.open.description)"
         closingPrice.text = "Close Price: $\(appleStockDetails.close.description)"
-//        if appleStockDetails.open > appleStockDetails.close {
-//            upDownImage.image = UIImage(named: "thumbsup")
-//            print(\(appleStockDetails.open))
-//        }
+        
+        
+        
+        if appleStockDetails.open > appleStockDetails.close {
+            view.backgroundColor = .red
+            upDownImage.image = UIImage(imageLiteralResourceName: "thumbsDown")
+        } else if appleStockDetails.open < appleStockDetails.close {
+            view.backgroundColor = .green
+            upDownImage.image = UIImage(imageLiteralResourceName: "thumbsUp")
+        
+        }
     }
     
 }
